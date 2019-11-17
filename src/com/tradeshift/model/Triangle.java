@@ -91,9 +91,9 @@ public class Triangle {
         }
     }
 
-    public boolean isTriangle()  {
+    public boolean isTriangle() throws Exception {
         if(this.side1 + this.side2 <= this.side3 || this.side2 +this.side3 <= this.side1 || this.side1 +this.side3 <= this.side2){
-           return false;
+          throw new Exception("A triangle cannot be formed with the given measurements!!");
         }
         else {
             return true;

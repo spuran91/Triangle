@@ -1,0 +1,12 @@
+package com.tradeshift.service;
+
+import com.tradeshift.model.Triangle;
+
+public class TriangleService{
+    private static  Gson gson = new Gson();
+
+    private String getType(String input){
+        Triangle triangle  = gson.fromJson(input,Triangle.class);
+        return triangle.getTypeofTriangle();
+    }
+}
