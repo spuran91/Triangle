@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="ts-app-title" content="My App"/>
+    <link rel="ts-app-icon" href="my-icon.svg"/>
+</head>
+<body>
+<div data-ts="App">
+    <div data-ts="Main">
+        <div data-ts="Content">
+            <div data-ts="Panel">
+                <em>Start building your app here!</em>
+            </div>
+        </div>
+        <form data-ts="Form-main">
+            <fieldset>
+                <label>
+                    <span>Input Triangle Lengths</span>
+
+                </label>
+                <input type="text" required />
+                <input type="text" required />
+                <input type="text" required />
+            </fieldset>
+        </form>
+</div>
+    <div>
+        <button data-ts="Button" class="ts-primary">
+            <span>Submit</span>
+        </button>
+    </div>
+    <div>
+        <form data-ts="Form-result">
+            <fieldset>
+                <label>
+                    <span>Result is</span>
+                    <input type="text" required />
+                </label>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+
+     ts.ui.ready(() => {
+		ts.ui.get('.ts-primary', tag => {
+			tag.onclick = () => {
+			$.ajax({
+      type: "GET",
+      url: "/triangle",
+      dataType : 'json', // data type
+      data : $("#Form-main").serialize(),
+      success: function(result) {
+        $("#Form-result").val(result);
+       	ts.ui.Notification.success('Completed');
+      },
+      error: function(result) {
+        alert('error');
+      }
+    });
+				ts.ui.Notification.success('Do you see?');
+			};
+		});
+	});
+    </script>
+</body>
+</html>

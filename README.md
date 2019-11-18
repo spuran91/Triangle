@@ -29,6 +29,7 @@ else it is scalene.
 If the initial check fails then it should throw an exception.
 
 Unit Tests:
+
 Junit5 is used.
 I have written unit tests for the method in Triangletest class.
 I have tested scenarios where it throws an exception and one scenario each for various lengths of triangles.
@@ -51,7 +52,17 @@ I have used SpringFrameworks annotations and the created an endpoint which handl
 For serializing i have used Gson. In the given case its just a choic to use the seriazliers, i choose Gson over ObjectMapper its just a choice as i'm comfortable with it.
 
 Serverless way:
+
 I want to discuss breifly how i plan to implement the Serverless part:
 I will create an API for handling GET requests in the API Gateway and have an IntegrationType of Lambda functions.
 If we have lambda pipleine setup, then we can define handler in the lambda function which would handle the 
 inputstreaminput and calculate the type of the result and then respond with  outputstreamhandler.
+
+
+With UI:
+
+I have added the index.html page
+
+here i have used the form with input text fields to provide for the Side lengths as input.
+
+On click of a submit button, i make a get call and when i get the response then i set it to the Result Field.
